@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MiniBrowser" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Oct-HY-oI7">
+                                <rect key="frame" x="0.0" y="44" width="414" height="29"/>
+                                <segments>
+                                    <segment title="facebook"/>
+                                    <segment title="twitter"/>
+                                    <segment title="apple"/>
+                                    <segment title="google"/>
+                                </segments>
+                                <connections>
+                                    <action selector="bookMarkAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="DwD-gQ-F9v"/>
+                                </connections>
+                            </segmentedControl>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oX8-bd-Vaf">
+                                <rect key="frame" x="0.0" y="72" width="414" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="go"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="V9v-Gc-qmT"/>
+                                </connections>
+                            </textField>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kcx-ST-esP">
+                                <rect key="frame" x="0.0" y="101" width="414" height="707"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="dma-rB-tPS">
+                                <rect key="frame" x="189" y="429.5" width="36" height="37"/>
+                                <color key="color" red="0.2787858699339788" green="0.39636700047857254" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b0d-Y4-QpO">
+                                <rect key="frame" x="0.0" y="808" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="VVc-nV-knF"/>
+                                    <barButtonItem systemItem="rewind" id="bxY-tU-dkN">
+                                        <connections>
+                                            <action selector="goBackAction:" destination="BYZ-38-t0r" id="0Pu-LN-sxg"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="eTm-g6-I64"/>
+                                    <barButtonItem systemItem="fastForward" id="u93-Ww-xEP">
+                                        <connections>
+                                            <action selector="goForwardAction:" destination="BYZ-38-t0r" id="rry-xq-63E"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="MCo-Lx-8NE"/>
+                                    <barButtonItem systemItem="stop" id="wfI-nW-fJ0">
+                                        <connections>
+                                            <action selector="stopAction:" destination="BYZ-38-t0r" id="vNW-8Y-9U6"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="x6v-mj-FMs"/>
+                                    <barButtonItem systemItem="refresh" id="xD8-eg-d5X">
+                                        <connections>
+                                            <action selector="reloadAction:" destination="BYZ-38-t0r" id="8zZ-Ky-QdR"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="NDM-rl-zwt"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="b0d-Y4-QpO" firstAttribute="top" secondItem="kcx-ST-esP" secondAttribute="bottom" id="0GP-Mc-e3J"/>
+                            <constraint firstItem="dma-rB-tPS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="189" id="8LB-Tc-MTh"/>
+                            <constraint firstItem="oX8-bd-Vaf" firstAttribute="trailing" secondItem="Oct-HY-oI7" secondAttribute="trailing" id="IG9-RH-31X"/>
+                            <constraint firstItem="Oct-HY-oI7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ln4-ym-Pui"/>
+                            <constraint firstItem="dma-rB-tPS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Rrq-3f-YcN"/>
+                            <constraint firstItem="Oct-HY-oI7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ssg-49-276"/>
+                            <constraint firstItem="oX8-bd-Vaf" firstAttribute="top" secondItem="Oct-HY-oI7" secondAttribute="bottom" id="TXh-PG-P6O"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="b0d-Y4-QpO" secondAttribute="bottom" constant="10" id="Wu4-dw-2vl"/>
+                            <constraint firstItem="kcx-ST-esP" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Y0d-HH-Gdy"/>
+                            <constraint firstItem="Oct-HY-oI7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="YSN-dI-Ias"/>
+                            <constraint firstItem="b0d-Y4-QpO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="a0o-7D-IAH"/>
+                            <constraint firstItem="kcx-ST-esP" firstAttribute="top" secondItem="Oct-HY-oI7" secondAttribute="bottom" constant="29" id="aPZ-vj-JVj"/>
+                            <constraint firstItem="oX8-bd-Vaf" firstAttribute="centerX" secondItem="dma-rB-tPS" secondAttribute="centerX" id="hrd-n0-cwV"/>
+                            <constraint firstItem="b0d-Y4-QpO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oz5-AB-phK"/>
+                            <constraint firstItem="oX8-bd-Vaf" firstAttribute="leading" secondItem="Oct-HY-oI7" secondAttribute="leading" id="p5k-it-J6A"/>
+                            <constraint firstItem="b0d-Y4-QpO" firstAttribute="top" secondItem="kcx-ST-esP" secondAttribute="bottom" id="pdH-89-ezC"/>
+                            <constraint firstItem="kcx-ST-esP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yDk-Pc-2CW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="bookMarkSegmentedControl" destination="Oct-HY-oI7" id="dpt-z0-Avv"/>
+                        <outlet property="mainWebView" destination="kcx-ST-esP" id="JCC-kr-MR4"/>
+                        <outlet property="spiningActivityIndicatorView" destination="dma-rB-tPS" id="YG8-yz-Oe2"/>
+                        <outlet property="urlTextField" destination="oX8-bd-Vaf" id="uGp-A4-Yyl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>
+        </scene>
+    </scenes>
+</document>
